@@ -1,16 +1,15 @@
 print("\n")
 print("=================================================================")
-print("========== WELCOME TO THE 🍐 HEXIDECIMAL CALCULATOR ==========")
+print("========== WELCOME TO THE 🍐 HEXIDECIMAL CALCULATOR =============")
 print("=================================================================")
 
+#VARIABLES
 selection = ['y', 'n']
-
-# selection = ['y', 'n', 'menu', 'exit']
-#     for m in selection[2::]:
-#         print(m)
-#         if m == n.lower():
-#             break
 user_sel = 'y'
+
+#FUNCTIONS
+def sel_list():
+    return "'" + "' or '".join(selection) + "'"
 
 def calculator(n):
    
@@ -36,6 +35,7 @@ def calculator(n):
 
     return apple
 
+#LETS GO
 while user_sel == 'y':
     print("\n")
     try:
@@ -46,7 +46,7 @@ while user_sel == 'y':
         # print("To exit the calculator, please type 'exit'. ")
         continue
     
-    user_sel = input("Would you like to calculate another number? Please type 'y' or 'n': ")
+    user_sel = input("Would you like to calculate another number? Please type " + sel_list() + ": ")
     user_sel_bad = True
 
     while user_sel_bad:
@@ -54,7 +54,7 @@ while user_sel == 'y':
             next(user_sel for s in selection if user_sel == s)
             user_sel_bad = False
         except StopIteration:
-            user_sel = input("Please ONLY type 'y' or 'n': ")
+            user_sel = input("Please ONLY type "+ sel_list() + ": ")
         
     if user_sel == 'n':
         print("\n")
