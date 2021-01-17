@@ -8,14 +8,16 @@ selection = ['y', 'n']
 user_sel = 'y'
 
 #FUNCTIONS
+
+##MENUS
 def sel_list():
     return "'" + "' or '".join(selection) + "'"
 
-def calculator(n):
+##CALCULATORS
+def hexify(n):
    
     h = str(hex(int(n)))
     z = '00000'
-    apple = ''
     h = h[2:]
 
     if len(h) == 3:
@@ -24,23 +26,28 @@ def calculator(n):
         pear = '0' + h + z
     else:
         pear = '00' + h + z
+    return pear
 
-    for i in range(len(pear)-1, 0, -2):
-        apple += pear[i-1:i+1]
+def appleify(n):
+    apple = ''
+    for i in range(len(n)-1, 0, -2):
+        apple += n[i-1:i+1]
     
     print("\n")    
-    print("The hexidecimal is: ", h, "\nThe Apple hexidecimal conversion is: ", apple)
+    print("The hexidecimal is: ", hexify(n), "\nThe Apple hexidecimal conversion is: ", apple)
     print("---------------------------------------------------------------------------")
     print("\n")
 
     return apple
+
+
 
 #LETS GO
 while user_sel == 'y':
     print("\n")
     try:
         n = input("Enter the number or MB to convert: ")
-        calculator(n)
+        appleify(hexify(n))
     except ValueError:
         print("*****YOU MAY ONLY ENTER A NUMBER. Please try again*****")
         # print("To exit the calculator, please type 'exit'. ")
