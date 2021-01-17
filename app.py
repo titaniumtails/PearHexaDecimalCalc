@@ -2,16 +2,20 @@ print("\n")
 print("=================================================================")
 print("========== WELCOME TO THE 🍐 HEXIDECIMAL CALCULATOR =============")
 print("=================================================================")
+print("\n")
+print("This calculator will help convert values listed in Whatever Green's framebuffer guide, to enter as data into your config.plist")
 
 #VARIABLES
-selection = ['y', 'n']
-user_sel = 'y'
+contd_selection = ['y', 'n']
+main_menu_selection = [1, 2]
+user_cont_sel = 'y'
 
 #FUNCTIONS
 
 ##MENUS
-def sel_list():
-    return "'" + "' or '".join(selection) + "'"
+def sel_list(sel_list):
+    return "'" + "' or '".join(sel_list) + "'"
+
 
 ##CALCULATORS
 def hexify(n):
@@ -36,7 +40,25 @@ def appleify(n):
     return apple
 
 #LETS GO PROGRAM
-while user_sel == 'y':
+print("\n")
+print("Would you like to...")
+print("1. I have the hexidecimal value already, I just need to REVERSE it into data readable config.plist data")
+print("2. I just have the decimal number, I want to CONVERT & REVERSE (2-in-1) it into data readable config.plist")
+print("\n")
+
+user_sel_bad = True
+
+while user_sel_bad:
+    try:
+        user_main_sel = int(input("Please enter the number of the calculator you wish to use: "))
+        next(user_main_sel for s in main_menu_selection if user_main_sel == s)
+        user_sel_bad = False
+    except (ValueError, StopIteration):
+        print("*****YOU MAY ONLY ENTER NUMBERS 1 OR 2. Please try again*****")
+        continue
+
+
+while user_cont_sel == 'y':
     print("\n")
     try:
         n = input("Enter the number or MB to convert: ")
@@ -46,20 +68,20 @@ while user_sel == 'y':
         print("\n")
     except ValueError:
         print("*****YOU MAY ONLY ENTER A NUMBER. Please try again*****")
-        # print("To exit the calculator, please type 'exit'. ")
+        #print("To calculate something else, or exit the calculator, please type 'exit' or 'menu'. ")
         continue
     
-    user_sel = input("Would you like to calculate another number? Please type " + sel_list() + ": ")
+    user_cont_sel = input("Would you like to calculate another number? Please type " + sel_list(contd_selection) + ": ")
     user_sel_bad = True
 
     while user_sel_bad:
         try:
-            next(user_sel for s in selection if user_sel == s)
+            next(user_cont_sel for s in contd_selection if user_cont_sel == s)
             user_sel_bad = False
         except StopIteration:
-            user_sel = input("Please ONLY type "+ sel_list() + ": ")
+            user_cont_sel = input("Please ONLY type "+ sel_list(contd_selection) + ": ")
         
-    if user_sel == 'n':
+    if user_cont_sel == 'n':
         print("\n")
         print("=============================================================")
         print("======================= GOOD BYE ============================")
