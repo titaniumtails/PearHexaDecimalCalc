@@ -15,7 +15,6 @@ def sel_list():
 
 ##CALCULATORS
 def hexify(n):
-   
     h = str(hex(int(n)))
     z = '00000'
     h = h[2:]
@@ -31,13 +30,12 @@ def hexify(n):
 def appleify(n):
     pear = hexify(n)
     apple = ''
+    
     for i in range(len(pear)-1, 0, -2):
         apple += pear[i-1:i+1]
     return apple
 
-
-
-#LETS GO
+#LETS GO PROGRAM
 while user_sel == 'y':
     print("\n")
     try:
