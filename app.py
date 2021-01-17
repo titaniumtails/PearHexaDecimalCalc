@@ -29,15 +29,10 @@ def hexify(n):
     return pear
 
 def appleify(n):
+    pear = hexify(n)
     apple = ''
-    for i in range(len(n)-1, 0, -2):
-        apple += n[i-1:i+1]
-    
-    print("\n")    
-    print("The hexidecimal is: ", hexify(n), "\nThe Apple hexidecimal conversion is: ", apple)
-    print("---------------------------------------------------------------------------")
-    print("\n")
-
+    for i in range(len(pear)-1, 0, -2):
+        apple += pear[i-1:i+1]
     return apple
 
 
@@ -47,7 +42,10 @@ while user_sel == 'y':
     print("\n")
     try:
         n = input("Enter the number or MB to convert: ")
-        appleify(hexify(n))
+        print("\n")    
+        print("The hexidecimal is: ", hexify(n), "\nThe Apple hexidecimal reversed conversion is: ", appleify(n))
+        print("---------------------------------------------------------------------------")
+        print("\n")
     except ValueError:
         print("*****YOU MAY ONLY ENTER A NUMBER. Please try again*****")
         # print("To exit the calculator, please type 'exit'. ")
