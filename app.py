@@ -35,7 +35,7 @@ while ans == 'y':
         calculator(n)
     except ValueError:
         print("*****YOU MAY ONLY ENTER A NUMBER. Please try again*****")
-        print("\n")
+        continue
 
 
     ans = input("Would you like to calculate another number? Please answer 'y' or 'n': ")
