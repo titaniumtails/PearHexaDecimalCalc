@@ -42,9 +42,9 @@ def appleify(n):
 
 #LETS GO PROGRAM
 print("\n")
-print("Would you like to...")
-print("1. I have the hexidecimal value already, I just need to REVERSE it into data readable config.plist data")
-print("2. I just have the decimal number, I want to CONVERT & REVERSE (2-in-1) it into data readable config.plist")
+print("Please choose between the following options:")
+print("1. I have the hexidecimal value already, I just need to REVERSE it into data readable by config.plist")
+print("2. I just have the decimal number, I want to CONVERT to hexidecimal & REVERSE (2-in-1) it into data readable config.plist")
 print("\n")
 
 
